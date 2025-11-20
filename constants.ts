@@ -22,7 +22,7 @@ export const SOCIALS: SocialLink[] = [
   { name: "X (Twitter)", url: "https://x.com/lwb214", iconName: "Twitter", display: "@lwb214" },
   { name: "GitHub", url: "https://github.com/wblu214", iconName: "Github", display: "wblu214" },
   { name: "Telegram", url: "https://t.me/wblu0214", iconName: "Send", display: "@wblu0214" },
-  { name: "WeChat", url: "#", iconName: "MessageCircle", display: "Lu-limitations" },
+  { name: "WeChat", url: "", iconName: "MessageCircle", display: "Lu-limitations" },
 ];
 
 export const getContent = (lang: Lang) => {

@@ -11,7 +11,7 @@ import { Moon, Sun, Languages } from 'lucide-react';
 const App: React.FC = () => {
   // Default to light mode (false for dark)
   const [isDark, setIsDark] = useState(false);
-  const [lang, setLang] = useState<Lang>('zh'); // Default to Chinese as per 'Hulk' persona hints, or EN if preferred. Let's default to Chinese as user requested Chinese interface mostly.
+  const [lang, setLang] = useState<Lang>('zh'); 
 
   useEffect(() => {
     if (isDark) {
@@ -26,22 +26,45 @@ const App: React.FC = () => {
   
   const content = getContent(lang).nav;
 
+  // Smooth Scroll Handler
+  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    e.preventDefault();
+    const element = document.getElementById(id);
+    if (element) {
+      const navHeight = 80; // Approximate navbar height
+      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+      const offsetPosition = elementPosition - navHeight;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
+      
+      // Optional: Update URL without jump
+      window.history.pushState(null, "", `#${id}`);
+    }
+  };
+
   return (
     <div className="relative min-h-screen text-slate-900 dark:text-slate-200 selection:bg-primary/30 selection:text-white transition-colors duration-300 font-sans">
       <Background />
       
       {/* Navigation Overlay */}
       <nav className="fixed top-0 left-0 right-0 z-50 px-6 py-4 flex justify-between items-center backdrop-blur-lg bg-white/70 dark:bg-slate-900/70 border-b border-slate-200 dark:border-white/5 transition-colors duration-300">
-        <div className="text-xl font-bold font-mono tracking-tighter text-slate-900 dark:text-white cursor-pointer hover:scale-105 transition-transform">
+        <a 
+            href="#home" 
+            onClick={(e) => handleScroll(e, 'home')}
+            className="text-xl font-bold font-mono tracking-tighter text-slate-900 dark:text-white cursor-pointer hover:scale-105 transition-transform"
+        >
             HULK<span className="text-secondary">.DEV</span>
-        </div>
+        </a>
         
         <div className="flex items-center gap-6">
             <div className="hidden md:flex gap-6 text-sm font-medium text-slate-600 dark:text-slate-400">
-                <a href="#" className="hover:text-primary dark:hover:text-white transition-colors">{content.home}</a>
-                <a href="#projects" className="hover:text-primary dark:hover:text-white transition-colors">{content.projects}</a>
-                <a href="#hackathons" className="hover:text-primary dark:hover:text-white transition-colors">{content.hackathons}</a>
-                <a href="#contact" className="hover:text-primary dark:hover:text-white transition-colors">{content.contact}</a>
+                <a href="#home" onClick={(e) => handleScroll(e, 'home')} className="hover:text-primary dark:hover:text-white transition-colors">{content.home}</a>
+                <a href="#projects" onClick={(e) => handleScroll(e, 'projects')} className="hover:text-primary dark:hover:text-white transition-colors">{content.projects}</a>
+                <a href="#hackathons" onClick={(e) => handleScroll(e, 'hackathons')} className="hover:text-primary dark:hover:text-white transition-colors">{content.hackathons}</a>
+                <a href="#contact" onClick={(e) => handleScroll(e, 'contact')} className="hover:text-primary dark:hover:text-white transition-colors">{content.contact}</a>
             </div>
 
             <div className="flex items-center gap-2 border-l border-slate-300 dark:border-slate-700 pl-6">

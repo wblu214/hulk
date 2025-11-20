@@ -81,7 +81,7 @@ const Projects: React.FC<ProjectsProps> = ({ lang }) => {
         </div>
 
         {/* HACKATHONS MINIMAL SECTION */}
-        <div id="hackathons" className="mb-10">
+        <div id="hackathons" className="mb-10 pt-12">
             <div className="flex items-center gap-3 mb-8">
                 <Trophy className="text-yellow-500" size={28} />
                 <h2 className="text-2xl font-bold font-mono text-slate-900 dark:text-white">

@@ -11,14 +11,14 @@ const Hero: React.FC<HeroProps> = ({ lang }) => {
   const content = getContent(lang).hero;
 
   return (
-    <section className="min-h-screen flex items-center justify-center px-6 pt-20 relative">
+    <section id="home" className="min-h-screen flex items-center justify-center px-6 pt-28 pb-12 relative">
       <div className="max-w-5xl w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         
         <motion.div 
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
-          className="space-y-6"
+          className="space-y-6 order-2 lg:order-1"
         >
             <div className="inline-flex items-center space-x-2 bg-white/50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-full px-4 py-1.5 backdrop-blur-md shadow-sm cursor-pointer hover:scale-105 transition-transform">
                 <span className="relative flex h-2 w-2">
@@ -62,33 +62,42 @@ const Hero: React.FC<HeroProps> = ({ lang }) => {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative hidden lg:block cursor-pointer hover:scale-[1.02] transition-transform duration-500"
+            className="relative flex flex-col items-center justify-center order-1 lg:order-2"
         >
-            {/* Abstract floating code block visual */}
-            <div className="relative w-full aspect-square bg-white/40 dark:bg-gradient-to-br dark:from-slate-800 dark:to-slate-900 rounded-2xl border border-white/60 dark:border-slate-700 shadow-2xl p-6 overflow-hidden group backdrop-blur-xl">
-                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-green-400 via-blue-500 to-purple-600"></div>
-                <div className="flex gap-2 mb-4">
-                    <div className="w-3 h-3 rounded-full bg-red-500"></div>
-                    <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-                    <div className="w-3 h-3 rounded-full bg-green-500"></div>
-                </div>
-                <div className="font-mono text-sm text-slate-700 dark:text-slate-300 space-y-2 opacity-90 font-medium">
-                    <p><span className="text-purple-600 dark:text-purple-400">const</span> <span className="text-blue-600 dark:text-blue-400">dev</span> = <span className="text-purple-600 dark:text-purple-400">new</span> <span className="text-yellow-600 dark:text-yellow-300">Developer</span>();</p>
-                    <p><span className="text-blue-600 dark:text-blue-400">dev</span>.<span className="text-yellow-600 dark:text-yellow-300">name</span> = <span className="text-green-600 dark:text-green-400">"Hulk"</span>;</p>
-                    <p><span className="text-blue-600 dark:text-blue-400">dev</span>.<span className="text-yellow-600 dark:text-yellow-300">stack</span> = [<span className="text-green-600 dark:text-green-400">"Solidity"</span>, <span className="text-green-600 dark:text-green-400">"Java"</span>, <span className="text-green-600 dark:text-green-400">"React"</span>];</p>
-                    <p className="text-slate-500 italic">// All In Web3</p>
-                    <p><span className="text-blue-600 dark:text-blue-400">dev</span>.<span className="text-yellow-600 dark:text-yellow-300">focus</span> = <span className="text-green-600 dark:text-green-400">"RWA Hub"</span>;</p>
-                    <p><span className="text-purple-600 dark:text-purple-400">await</span> <span className="text-blue-600 dark:text-blue-400">dev</span>.<span className="text-yellow-600 dark:text-yellow-300">buildFuture</span>();</p>
-                    
-                    <div className="mt-8 p-4 bg-slate-100 dark:bg-black/30 rounded-lg border-l-2 border-green-500">
-                        <p className="text-green-600 dark:text-green-400 font-bold">$ initiating startup...</p>
-                        <p className="text-green-600 dark:text-green-400">$ status: thriving 🚀</p>
-                    </div>
+            {/* Avatar Section */}
+            <div className="relative group cursor-pointer mb-8 lg:mb-0">
+                <div className="absolute -inset-1 bg-gradient-to-r from-cyan-400 to-purple-600 rounded-full opacity-70 blur-md group-hover:opacity-100 transition duration-500"></div>
+                <div className="relative w-48 h-48 lg:w-64 lg:h-64 rounded-full overflow-hidden border-4 border-white dark:border-slate-800 shadow-2xl">
+                    <img 
+                        src="./avatar.png" 
+                        alt="Hulk" 
+                        className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+                        onError={(e) => {
+                            // Fallback to placeholder if local image not found
+                            (e.target as HTMLImageElement).src = "https://ui-avatars.com/api/?name=Hulk&size=256&background=0f172a&color=fff";
+                        }}
+                    />
                 </div>
                 
-                {/* Floating decorative icons */}
-                <Terminal className="absolute bottom-10 right-10 text-slate-300 dark:text-slate-700 w-24 h-24 opacity-20 group-hover:opacity-30 transition-opacity group-hover:rotate-12 transform duration-500" />
+                {/* Floating decorative elements */}
+                <div className="absolute -bottom-2 -right-2 bg-white dark:bg-slate-800 p-2 rounded-full shadow-lg border border-slate-200 dark:border-slate-700">
+                    <Terminal size={24} className="text-primary" />
+                </div>
             </div>
+
+             {/* Code Block Visual (Optional: Only show on larger screens or if desired below avatar) */}
+             <div className="hidden lg:block w-full mt-8 max-w-sm mx-auto bg-white/40 dark:bg-slate-900/40 rounded-xl border border-white/60 dark:border-slate-700 backdrop-blur-md p-4 shadow-lg">
+                <div className="flex gap-1.5 mb-3">
+                    <div className="w-2.5 h-2.5 rounded-full bg-red-500"></div>
+                    <div className="w-2.5 h-2.5 rounded-full bg-yellow-500"></div>
+                    <div className="w-2.5 h-2.5 rounded-full bg-green-500"></div>
+                </div>
+                <div className="font-mono text-xs space-y-1 text-slate-600 dark:text-slate-400">
+                    <p><span className="text-purple-600">const</span> <span className="text-blue-600">hulk</span> = <span className="text-yellow-600">new</span> <span className="text-green-600">Builder</span>();</p>
+                    <p><span className="text-blue-600">hulk</span>.<span className="text-yellow-600">mission</span> = <span className="text-green-600">"RWA Revolution"</span>;</p>
+                </div>
+             </div>
+
         </motion.div>
 
       </div>
