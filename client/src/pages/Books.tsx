@@ -90,12 +90,12 @@ export default function Books() {
             </p>
           </div>
           
-          <Link href="/thoughts">
-            <Button className="gap-2">
+          <Button className="gap-2" asChild>
+            <a href="/thoughts">
               Read My Thoughts
               <ArrowRight className="h-4 w-4" />
-            </Button>
-          </Link>
+            </a>
+          </Button>
         </div>
       </section>
     </div>
