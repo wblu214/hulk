@@ -38,19 +38,6 @@ export default function Books() {
 
   return (
     <div className="min-h-screen flex flex-col">
-      {/* Header */}
-      <section className="py-20 md:py-32 border-b border-border">
-        <div className="container max-w-3xl">
-          <div className="space-y-6">
-            <h1 className="text-5xl md:text-6xl font-bold tracking-tight">Books & Resources</h1>
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              Books and resources I recommend.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Books Grid */}
       <section className="py-20 md:py-32">
         <div className="container">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

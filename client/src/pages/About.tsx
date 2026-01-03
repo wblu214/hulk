@@ -13,18 +13,6 @@ import { Github, Twitter, Mail, Zap, Code2, Rocket } from "lucide-react";
 export default function About() {
   return (
     <div className="min-h-screen flex flex-col">
-      {/* Header */}
-      <section className="py-20 md:py-32 border-b border-border">
-        <div className="container max-w-3xl">
-          <div className="space-y-6">
-            <h1 className="text-5xl md:text-6xl font-bold tracking-tight">About Me</h1>
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              Get to know who I am, what I do, and what drives my passion for building in Web3.
-            </p>
-          </div>
-        </div>
-      </section>
-
       {/* Main Content */}
       <section className="py-20 md:py-32">
         <div className="container max-w-3xl space-y-16">

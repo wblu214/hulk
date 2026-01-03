@@ -38,18 +38,6 @@ export default function Thoughts() {
 
   return (
     <div className="min-h-screen flex flex-col">
-      {/* Header */}
-      <section className="py-20 md:py-32 border-b border-border">
-        <div className="container max-w-3xl">
-          <div className="space-y-6">
-            <h1 className="text-5xl md:text-6xl font-bold tracking-tight">Thoughts</h1>
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              My thoughts on Web3 and technology.
-            </p>
-          </div>
-        </div>
-      </section>
-
       {/* Articles Grid */}
       <section className="py-20 md:py-32">
         <div className="container max-w-3xl">
