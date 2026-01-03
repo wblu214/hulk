@@ -1,154 +1,211 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Code, PenTool, BookOpen, ExternalLink } from "lucide-react";
 import { Link } from "wouter";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import { ArrowRight, Code2, Zap } from "lucide-react";
+
+/**
+ * Home Page
+ * 
+ * Design: Architectural Minimalist
+ * - Bold typography hierarchy
+ * - Ample whitespace
+ * - Minimal color accents
+ * - Clear call-to-action
+ */
 
 export default function Home() {
   return (
-    <div className="space-y-24 pb-24">
+    <div className="min-h-screen flex flex-col">
       {/* Hero Section */}
-      <section className="container pt-24 md:pt-32 pb-12">
-        <div className="max-w-3xl space-y-8">
-          <div className="space-y-4">
-            <Badge variant="outline" className="font-mono text-xs px-3 py-1 rounded-full border-primary/20 text-primary bg-primary/5">
-              AVAILABLE FOR HIRE
-            </Badge>
-            <h1 className="text-5xl md:text-7xl font-bold tracking-tighter leading-[1.1]">
-              Crafting digital <br/>
-              <span className="text-muted-foreground">experiences with code.</span>
-            </h1>
-          </div>
-          
-          <p className="text-xl text-muted-foreground max-w-2xl leading-relaxed">
-            I'm John Doe, a Design Engineer based in San Francisco. I build accessible, pixel-perfect, and performant web experiences.
-          </p>
-          
-          <div className="flex flex-wrap gap-4 pt-4">
-            <Button size="lg" className="h-12 px-8 text-base" asChild>
-              <Link href="/work">
-                View Work <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
-            </Button>
-            <Button size="lg" variant="outline" className="h-12 px-8 text-base" asChild>
-              <Link href="/about">
-                More About Me
-              </Link>
-            </Button>
-          </div>
-        </div>
-      </section>
+      <section className="flex-1 flex items-center py-20 md:py-32">
+        <div className="container max-w-3xl">
+          <div className="space-y-6">
+            {/* Status Badge */}
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/30 bg-primary/5 text-primary text-xs font-semibold tracking-wider">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+              </span>
+              BUILDING IN WEB3
+            </div>
 
-      {/* Featured Work */}
-      <section className="container">
-        <div className="flex items-center justify-between mb-12">
-          <h2 className="text-3xl font-bold tracking-tight">Selected Work</h2>
-          <Link href="/work">
-            <a className="group flex items-center text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
-              View all projects 
-              <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </a>
-          </Link>
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {[1, 2].map((item) => (
-            <Link key={item} href={`/work/project-${item}`}>
-              <a className="group block space-y-4">
-                <div className="aspect-video overflow-hidden rounded-lg border border-border bg-secondary/50 relative">
-                  <div className="absolute inset-0 flex items-center justify-center text-muted-foreground/20 group-hover:scale-105 transition-transform duration-500">
-                    <Code className="h-16 w-16" />
-                  </div>
-                </div>
-                <div className="space-y-2">
-                  <div className="flex items-center justify-between">
-                    <h3 className="text-xl font-bold group-hover:text-primary transition-colors">Project Name {item}</h3>
-                    <ExternalLink className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity text-muted-foreground" />
-                  </div>
-                  <p className="text-muted-foreground line-clamp-2">
-                    A brief description of the project goes here. It explains the core problem solved and the technologies used.
-                  </p>
-                  <div className="flex gap-2 pt-2">
-                    <Badge variant="secondary" className="font-mono text-xs">React</Badge>
-                    <Badge variant="secondary" className="font-mono text-xs">TypeScript</Badge>
-                    <Badge variant="secondary" className="font-mono text-xs">Tailwind</Badge>
-                  </div>
-                </div>
-              </a>
-            </Link>
-          ))}
-        </div>
-      </section>
-
-      {/* Latest Writing */}
-      <section className="container">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
-          <div className="md:col-span-4 space-y-4">
-            <h2 className="text-3xl font-bold tracking-tight">Latest Writing</h2>
-            <p className="text-muted-foreground">
-              Thoughts on software development, design systems, and building products.
-            </p>
-            <Button variant="outline" asChild>
-              <Link href="/blog">
-                Read all articles
-              </Link>
-            </Button>
-          </div>
-          
-          <div className="md:col-span-8 space-y-8">
-            {[1, 2, 3].map((item) => (
-              <Link key={item} href={`/blog/post-${item}`}>
-                <a className="group block border-b border-border pb-8 last:border-0 last:pb-0">
-                  <article className="space-y-3">
-                    <div className="flex items-center gap-3 text-xs font-mono text-muted-foreground">
-                      <time dateTime="2023-01-01">Oct 12, 2023</time>
-                      <span>•</span>
-                      <span>Development</span>
-                    </div>
-                    <h3 className="text-2xl font-bold group-hover:text-primary transition-colors">
-                      The Future of Web Development in 2024
-                    </h3>
-                    <p className="text-muted-foreground line-clamp-2">
-                      Exploring the latest trends in frontend frameworks, build tools, and the shift towards server-side rendering.
-                    </p>
-                    <div className="flex items-center text-sm font-medium text-primary opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">
-                      Read article <ArrowRight className="ml-1 h-3 w-3" />
-                    </div>
-                  </article>
-                </a>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Notes / Knowledge Base */}
-      <section className="container">
-        <div className="rounded-2xl border border-border bg-secondary/20 p-8 md:p-12">
-          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
-            <div className="space-y-4 max-w-2xl">
-              <div className="flex items-center gap-2 text-primary font-mono text-sm font-medium">
-                <BookOpen className="h-4 w-4" />
-                <span>DIGITAL GARDEN</span>
-              </div>
-              <h2 className="text-3xl font-bold tracking-tight">My Personal Knowledge Base</h2>
-              <p className="text-muted-foreground">
-                A collection of raw notes, snippets, and resources I've gathered over the years. Less polished than the blog, but equally useful.
+            {/* Main Heading */}
+            <div className="space-y-4">
+              <h1 className="text-5xl md:text-7xl font-bold tracking-tight leading-tight">
+                <span className="block">Building</span>
+                <span className="block text-muted-foreground">the future of RWA.</span>
+              </h1>
+              
+              <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl">
+                I'm Hulk, a full-stack developer and Web3 entrepreneur. Currently leading RWA Hub development. Passionate about blockchain, developer tools, and writing efficient code. Previously worked at Dewu (智能客服) and Wind (万得) on enterprise-scale systems.
               </p>
             </div>
-            <Button size="lg" variant="secondary" className="shrink-0" asChild>
-              <Link href="/notes">
-                Explore Notes
+
+            {/* Tech Stack */}
+            <div className="space-y-3 pt-4">
+              <p className="text-sm font-semibold text-muted-foreground uppercase tracking-wider">Tech Stack</p>
+              <div className="flex flex-wrap gap-2">
+                {["Java", "Go", "Python", "JavaScript", "React", "Next.js", "Solidity"].map((tech) => (
+                  <span 
+                    key={tech}
+                    className="px-3 py-1 rounded-full border border-border bg-background text-xs font-medium text-foreground hover:border-primary/50 transition-colors"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 pt-8">
+              <Link href="/about">
+                <Button className="gap-2 group" size="lg">
+                  Learn More
+                  <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                </Button>
               </Link>
-            </Button>
+              <Button variant="outline" size="lg" asChild>
+                <a href="https://github.com/wblu214" target="_blank" rel="noopener noreferrer">
+                  View GitHub
+                </a>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Projects Section */}
+      <section className="py-20 md:py-32 border-t border-border bg-secondary/30">
+        <div className="container">
+          <div className="space-y-12">
+            <div className="space-y-4">
+              <h2 className="text-4xl md:text-5xl font-bold tracking-tight">Featured Work</h2>
+              <p className="text-lg text-muted-foreground max-w-2xl">
+                Selected projects showcasing my work in Web3, backend systems, and developer tools.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {/* Project Card 1 */}
+              <div className="group relative overflow-hidden rounded-lg border border-border bg-background p-6 hover:border-primary/50 transition-colors">
+                <div className="space-y-4">
+                  <div className="flex items-start justify-between">
+                    <div className="space-y-2">
+                      <h3 className="text-xl font-bold">3copy</h3>
+                      <p className="text-sm text-muted-foreground">Chrome Extension</p>
+                    </div>
+                    <Code2 className="h-5 w-5 text-primary opacity-60" />
+                  </div>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    A Chrome extension designed for developers. Vibe coding神器 - streamlines daily development workflow with smart copy-paste utilities.
+                  </p>
+                  <div className="flex gap-2 pt-4">
+                    <span className="inline-flex items-center gap-1 px-2 py-1 rounded text-xs font-medium bg-primary/10 text-primary">
+                      JavaScript
+                    </span>
+                    <span className="inline-flex items-center gap-1 px-2 py-1 rounded text-xs font-medium bg-primary/10 text-primary">
+                      Chrome API
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Project Card 2 */}
+              <div className="group relative overflow-hidden rounded-lg border border-border bg-background p-6 hover:border-primary/50 transition-colors">
+                <div className="space-y-4">
+                  <div className="flex items-start justify-between">
+                    <div className="space-y-2">
+                      <h3 className="text-xl font-bold">RWA Hub</h3>
+                      <p className="text-sm text-muted-foreground">Web3 Infrastructure</p>
+                    </div>
+                    <Zap className="h-5 w-5 text-primary opacity-60" />
+                  </div>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    Leading development of a Real World Assets (RWA) infrastructure hub. Building scalable blockchain systems for enterprise adoption.
+                  </p>
+                  <div className="flex gap-2 pt-4">
+                    <span className="inline-flex items-center gap-1 px-2 py-1 rounded text-xs font-medium bg-primary/10 text-primary">
+                      Solidity
+                    </span>
+                    <span className="inline-flex items-center gap-1 px-2 py-1 rounded text-xs font-medium bg-primary/10 text-primary">
+                      Go
+                    </span>
+                    <span className="inline-flex items-center gap-1 px-2 py-1 rounded text-xs font-medium bg-primary/10 text-primary">
+                      Blockchain
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="text-center pt-8">
+              <Link href="/books">
+                <Button variant="outline" className="gap-2">
+                  View All Projects
+                  <ArrowRight className="h-4 w-4" />
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Hackathons Section */}
+      <section className="py-20 md:py-32">
+        <div className="container">
+          <div className="space-y-12">
+            <div className="space-y-4">
+              <h2 className="text-4xl md:text-5xl font-bold tracking-tight">Hackathon Achievements</h2>
+              <p className="text-lg text-muted-foreground max-w-2xl">
+                Actively participating in major blockchain hackathons and building innovative solutions.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {[
+                { name: "BNB Abu Dhabi Hackathon", year: "2025" },
+                { name: "ADVX 2025", year: "2025" },
+                { name: "ETH Shanghai 2025", year: "2025" },
+                { name: "Monad Hackathon", year: "2025" },
+              ].map((hackathon, index) => (
+                <div 
+                  key={index}
+                  className="p-4 rounded-lg border border-border hover:border-primary/50 transition-colors"
+                >
+                  <p className="font-semibold text-foreground">{hackathon.name}</p>
+                  <p className="text-sm text-muted-foreground">{hackathon.year}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 md:py-32 border-t border-border bg-secondary/30">
+        <div className="container text-center space-y-8">
+          <div className="space-y-4">
+            <h2 className="text-4xl md:text-5xl font-bold tracking-tight">Let's Connect</h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Interested in Web3, blockchain, or collaboration? Reach out via social media or email.
+            </p>
           </div>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-12">
-            {['React Patterns', 'CSS Tricks', 'System Design', 'Accessibility', 'Performance', 'Tools'].map((tag) => (
-              <div key={tag} className="flex items-center p-4 bg-background rounded-lg border border-border hover:border-primary/50 transition-colors cursor-default">
-                <span className="font-mono text-sm">#{tag.toLowerCase().replace(' ', '-')}</span>
-              </div>
-            ))}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button asChild>
+              <a href="https://x.com/lwb214" target="_blank" rel="noopener noreferrer">
+                Follow on X
+              </a>
+            </Button>
+            <Button variant="outline" asChild>
+              <a href="https://github.com/wblu214" target="_blank" rel="noopener noreferrer">
+                GitHub Profile
+              </a>
+            </Button>
+            <Button variant="outline" asChild>
+              <a href="https://t.me/wblu0214" target="_blank" rel="noopener noreferrer">
+                Telegram
+              </a>
+            </Button>
           </div>
         </div>
       </section>

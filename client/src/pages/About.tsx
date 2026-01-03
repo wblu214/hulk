@@ -1,121 +1,200 @@
 import { Button } from "@/components/ui/button";
-import { Mail, MapPin, Briefcase, GraduationCap } from "lucide-react";
+import { Github, Twitter, Mail, Zap, Code2, Rocket } from "lucide-react";
+
+/**
+ * About Page
+ * 
+ * Design: Architectural Minimalist
+ * - Personal narrative
+ * - Clear information hierarchy
+ * - Minimal visual elements
+ */
 
 export default function About() {
   return (
-    <div className="container py-24 space-y-24">
-      {/* Intro */}
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-start">
-        <div className="md:col-span-5">
-          <div className="aspect-square rounded-2xl bg-secondary overflow-hidden relative">
-            {/* Placeholder for profile image */}
-            <div className="absolute inset-0 bg-gradient-to-br from-secondary to-muted flex items-center justify-center text-muted-foreground">
-              <span className="text-6xl">JD</span>
-            </div>
+    <div className="min-h-screen flex flex-col">
+      {/* Header */}
+      <section className="py-20 md:py-32 border-b border-border">
+        <div className="container max-w-3xl">
+          <div className="space-y-6">
+            <h1 className="text-5xl md:text-6xl font-bold tracking-tight">About Me</h1>
+            <p className="text-lg text-muted-foreground leading-relaxed">
+              Get to know who I am, what I do, and what drives my passion for building in Web3.
+            </p>
           </div>
         </div>
-        
-        <div className="md:col-span-7 space-y-8">
-          <div className="space-y-4">
-            <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
-              Hi, I'm John Doe.
-            </h1>
-            <h2 className="text-2xl text-muted-foreground font-light">
-              Design Engineer & Frontend Developer
-            </h2>
-          </div>
-          
-          <div className="space-y-4 text-lg text-muted-foreground leading-relaxed">
-            <p>
-              I have a passion for building digital products that are not only functional but also beautiful and easy to use. With a background in both design and engineering, I bridge the gap between aesthetics and technical implementation.
-            </p>
-            <p>
-              Currently, I'm working as a Senior Frontend Developer at Tech Company, where I lead the design system team and contribute to the core product.
-            </p>
-            <p>
-              When I'm not coding, you can find me exploring the outdoors, reading sci-fi novels, or experimenting with new cooking recipes.
-            </p>
-          </div>
-          
-          <div className="flex flex-wrap gap-4 pt-4">
-            <div className="flex items-center gap-2 text-sm text-muted-foreground">
-              <MapPin className="h-4 w-4" />
-              San Francisco, CA
-            </div>
-            <div className="flex items-center gap-2 text-sm text-muted-foreground">
-              <Mail className="h-4 w-4" />
-              hello@example.com
-            </div>
-          </div>
-          
-          <div className="pt-4">
-            <Button size="lg">Download Resume</Button>
-          </div>
-        </div>
-      </div>
+      </section>
 
-      {/* Experience */}
-      <div className="max-w-3xl mx-auto space-y-12">
-        <h2 className="text-3xl font-bold tracking-tight flex items-center gap-3">
-          <Briefcase className="h-6 w-6" />
-          Experience
-        </h2>
-        
-        <div className="space-y-12 relative border-l border-border ml-3 pl-8 md:pl-12">
-          {[
-            {
-              role: "Senior Frontend Developer",
-              company: "Tech Company",
-              period: "2021 - Present",
-              description: "Leading the frontend team, establishing best practices, and maintaining the company's design system."
-            },
-            {
-              role: "Frontend Developer",
-              company: "Creative Agency",
-              period: "2019 - 2021",
-              description: "Built award-winning marketing websites and interactive experiences for global brands."
-            },
-            {
-              role: "Junior Web Developer",
-              company: "Startup Inc.",
-              period: "2018 - 2019",
-              description: "Collaborated with designers to implement responsive user interfaces and fix bugs."
-            }
-          ].map((job, index) => (
-            <div key={index} className="relative">
-              <span className="absolute -left-[41px] md:-left-[57px] top-1 h-5 w-5 rounded-full border-4 border-background bg-primary"></span>
-              <div className="space-y-2">
-                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
-                  <h3 className="text-xl font-bold">{job.role}</h3>
-                  <span className="font-mono text-sm text-muted-foreground">{job.period}</span>
+      {/* Main Content */}
+      <section className="py-20 md:py-32">
+        <div className="container max-w-3xl space-y-16">
+          {/* Bio */}
+          <div className="space-y-6">
+            <h2 className="text-3xl font-bold">Who I Am</h2>
+            <div className="space-y-4 text-lg text-muted-foreground leading-relaxed">
+              <p>
+                I'm Hulk, a 00后 full-stack developer and Web3 entrepreneur. I graduated from a 211 university and have been working in tech for about a year, but I'm all-in on Web3 now.
+              </p>
+              <p>
+                Currently, I'm the lead developer for RWA Hub, building infrastructure for Real World Assets on the blockchain. My primary focus is backend development, but I'm equally comfortable working on frontend systems using React and Next.js.
+              </p>
+              <p>
+                Before diving into Web3, I worked at Dewu (得物) building intelligent customer service systems and at Wind (万得) developing global enterprise databases. These experiences shaped my understanding of large-scale systems and gave me the foundation to tackle complex Web3 infrastructure challenges.
+              </p>
+            </div>
+          </div>
+
+          {/* Tech Stack */}
+          <div className="space-y-6">
+            <h2 className="text-3xl font-bold">Tech Stack</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="space-y-4">
+                <h3 className="font-semibold text-foreground flex items-center gap-2">
+                  <Code2 className="h-5 w-5 text-primary" />
+                  Backend
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                  {["Java", "Go", "Python"].map((tech) => (
+                    <span
+                      key={tech}
+                      className="px-3 py-1 rounded-full border border-border text-sm font-medium"
+                    >
+                      {tech}
+                    </span>
+                  ))}
                 </div>
-                <div className="text-primary font-medium">{job.company}</div>
-                <p className="text-muted-foreground leading-relaxed">
-                  {job.description}
+              </div>
+
+              <div className="space-y-4">
+                <h3 className="font-semibold text-foreground flex items-center gap-2">
+                  <Zap className="h-5 w-5 text-primary" />
+                  Frontend
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                  {["JavaScript", "React", "Next.js"].map((tech) => (
+                    <span
+                      key={tech}
+                      className="px-3 py-1 rounded-full border border-border text-sm font-medium"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="space-y-4">
+                <h3 className="font-semibold text-foreground flex items-center gap-2">
+                  <Rocket className="h-5 w-5 text-primary" />
+                  Blockchain
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                  {["Solidity", "Web3", "Smart Contracts"].map((tech) => (
+                    <span
+                      key={tech}
+                      className="px-3 py-1 rounded-full border border-border text-sm font-medium"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Hackathons */}
+          <div className="space-y-6">
+            <h2 className="text-3xl font-bold">Hackathon Participation</h2>
+            <p className="text-lg text-muted-foreground">
+              I'm actively participating in major blockchain hackathons to build innovative solutions and connect with the Web3 community.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {[
+                "BNB Abu Dhabi Hackathon",
+                "ADVX 2025",
+                "ETH Shanghai 2025",
+                "Monad Hackathon",
+              ].map((hackathon) => (
+                <div
+                  key={hackathon}
+                  className="p-4 rounded-lg border border-border hover:border-primary/50 transition-colors"
+                >
+                  <p className="font-semibold text-foreground">{hackathon}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Projects */}
+          <div className="space-y-6">
+            <h2 className="text-3xl font-bold">Notable Projects</h2>
+            
+            <div className="space-y-6">
+              <div className="border-l-2 border-primary pl-6 space-y-2">
+                <h3 className="text-xl font-bold">3copy - Chrome Extension</h3>
+                <p className="text-muted-foreground">
+                  A Chrome extension designed to boost developer productivity. It's been called a "vibe coding神器" (vibe coding tool) for its ability to streamline daily development workflows.
+                </p>
+              </div>
+
+              <div className="border-l-2 border-primary pl-6 space-y-2">
+                <h3 className="text-xl font-bold">RWA Hub</h3>
+                <p className="text-muted-foreground">
+                  Leading the development of a Real World Assets infrastructure hub. This project aims to bridge traditional finance and blockchain, enabling enterprise adoption of Web3 technologies.
                 </p>
               </div>
             </div>
-          ))}
-        </div>
-      </div>
+          </div>
 
-      {/* Education */}
-      <div className="max-w-3xl mx-auto space-y-12">
-        <h2 className="text-3xl font-bold tracking-tight flex items-center gap-3">
-          <GraduationCap className="h-6 w-6" />
-          Education
-        </h2>
-        
-        <div className="space-y-8">
-          <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-2 border-b border-border pb-8">
-            <div>
-              <h3 className="text-xl font-bold">Bachelor of Science in Computer Science</h3>
-              <div className="text-muted-foreground">University of Technology</div>
+          {/* Contact */}
+          <div className="space-y-6 pt-8 border-t border-border">
+            <h2 className="text-3xl font-bold">Let's Connect</h2>
+            <p className="text-lg text-muted-foreground">
+              I'm always interested in discussing Web3, blockchain technology, and building cool things. Feel free to reach out!
+            </p>
+
+            <div className="space-y-4">
+              <div className="space-y-2">
+                <h3 className="font-semibold text-foreground">Social Media</h3>
+                <div className="flex flex-wrap gap-3">
+                  <Button variant="outline" asChild>
+                    <a href="https://x.com/lwb214" target="_blank" rel="noopener noreferrer" className="gap-2">
+                      <Twitter className="h-4 w-4" />
+                      X / Twitter
+                    </a>
+                  </Button>
+                  <Button variant="outline" asChild>
+                    <a href="https://github.com/wblu214" target="_blank" rel="noopener noreferrer" className="gap-2">
+                      <Github className="h-4 w-4" />
+                      GitHub
+                    </a>
+                  </Button>
+                  <Button variant="outline" asChild>
+                    <a href="https://t.me/wblu0214" target="_blank" rel="noopener noreferrer" className="gap-2">
+                      <Mail className="h-4 w-4" />
+                      Telegram
+                    </a>
+                  </Button>
+                </div>
+              </div>
+
+              <div className="space-y-2">
+                <h3 className="font-semibold text-foreground">Direct Contact</h3>
+                <div className="space-y-1 text-muted-foreground">
+                  <p>WeChat: <code className="bg-secondary px-2 py-1 rounded text-sm">Lu-limitations</code></p>
+                  <p className="text-sm">(Please note your purpose when adding)</p>
+                </div>
+              </div>
+
+              <div className="space-y-2">
+                <h3 className="font-semibold text-foreground">Follow My Updates</h3>
+                <p className="text-muted-foreground">
+                  Subscribe to my WeChat Official Account: <code className="bg-secondary px-2 py-1 rounded text-sm">颢克说AI</code>
+                </p>
+              </div>
             </div>
-            <span className="font-mono text-sm text-muted-foreground">2014 - 2018</span>
           </div>
         </div>
-      </div>
+      </section>
     </div>
   );
 }
