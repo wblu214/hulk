@@ -69,6 +69,9 @@
   /* Electric Blue Primary */
   --primary: oklch(0.55 0.25 260); /* #0055FF approx */
   --primary-foreground: oklch(1 0 0);
+  
+  /* Light beam effect for light mode */
+  --light-beam-color: oklch(0.55 0.25 260);
 
   --sidebar-primary: oklch(0.55 0.25 260);
   --sidebar-primary-foreground: oklch(1 0 0);
@@ -130,6 +133,9 @@
   /* Electric Blue Primary - Slightly lighter for dark mode */
   --primary: oklch(0.6 0.25 260);
   --primary-foreground: oklch(1 0 0);
+  
+  /* Light beam effect for dark mode - more visible */
+  --light-beam-color: oklch(0.6 0.25 260);
 
   --sidebar-primary: oklch(0.6 0.25 260);
   --sidebar-primary-foreground: oklch(1 0 0);

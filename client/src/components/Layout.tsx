@@ -1,12 +1,15 @@
 import { Link, useLocation } from "wouter";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import { Github, Twitter, Linkedin, Mail, Menu, X } from "lucide-react";
+import { Github, Twitter, Linkedin, Mail, Menu, X, Moon, Sun } from "lucide-react";
 import { useState } from "react";
+import { useTheme } from "@/contexts/ThemeContext";
+import LightBeam from "./LightBeam";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const [location] = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { theme, toggleTheme } = useTheme();
 
   const navItems = [
     { label: "Work", path: "/work" },
@@ -22,9 +25,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-background text-foreground font-sans selection:bg-primary/20">
+    <div className="min-h-screen flex flex-col bg-background text-foreground font-sans selection:bg-primary/20 relative overflow-hidden">
+      <LightBeam intensity={0.12} size={500} followMouse />
+      
       {/* Navigation */}
-      <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/80 backdrop-blur-md supports-[backdrop-filter]:bg-background/60">
+      <header className="sticky top-0 z-40 w-full border-b border-border/40 bg-background/80 backdrop-blur-md supports-[backdrop-filter]:bg-background/60">
         <div className="container flex h-16 items-center justify-between">
           <div className="flex items-center gap-8">
             <Link href="/">
@@ -49,6 +54,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
           <div className="flex items-center gap-4">
             <div className="hidden md:flex items-center gap-2">
+              <Button variant="ghost" size="icon" className="h-8 w-8" onClick={toggleTheme}>
+                {theme === 'dark' ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+                <span className="sr-only">Toggle theme</span>
+              </Button>
               <Button variant="ghost" size="icon" asChild className="h-8 w-8">
                 <a href="https://github.com" target="_blank" rel="noopener noreferrer">
                   <Github className="h-4 w-4" />
@@ -92,6 +101,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 </Link>
               ))}
               <div className="flex gap-4 pt-4 border-t border-border mt-2">
+                <button onClick={toggleTheme} className="text-muted-foreground hover:text-primary">
+                  {theme === 'dark' ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+                </button>
                 <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary">
                   <Github className="h-5 w-5" />
                 </a>
@@ -105,12 +117,12 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       </header>
 
       {/* Main Content */}
-      <main className="flex-1">
+      <main className="flex-1 relative z-10">
         {children}
       </main>
 
       {/* Footer */}
-      <footer className="border-t border-border bg-secondary/30">
+      <footer className="border-t border-border bg-secondary/30 relative z-10">
         <div className="container py-12 md:py-16">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="md:col-span-1 space-y-4">
