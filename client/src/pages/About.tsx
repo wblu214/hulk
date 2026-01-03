@@ -156,24 +156,18 @@ export default function About() {
               <div className="space-y-2">
                 <h3 className="font-semibold text-foreground">Social Media</h3>
                 <div className="flex flex-wrap gap-3">
-                  <Button variant="outline" asChild>
-                    <a href="https://x.com/lwb214" target="_blank" rel="noopener noreferrer" className="gap-2">
-                      <Twitter className="h-4 w-4" />
-                      X / Twitter
-                    </a>
-                  </Button>
-                  <Button variant="outline" asChild>
-                    <a href="https://github.com/wblu214" target="_blank" rel="noopener noreferrer" className="gap-2">
-                      <Github className="h-4 w-4" />
-                      GitHub
-                    </a>
-                  </Button>
-                  <Button variant="outline" asChild>
-                    <a href="https://t.me/wblu0214" target="_blank" rel="noopener noreferrer" className="gap-2">
-                      <Mail className="h-4 w-4" />
-                      Telegram
-                    </a>
-                  </Button>
+                  <a href="https://x.com/lwb214" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-3 py-2 rounded-md border border-input hover:bg-accent transition-colors">
+                    <Twitter className="h-4 w-4" />
+                    X / Twitter
+                  </a>
+                  <a href="https://github.com/wblu214" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-3 py-2 rounded-md border border-input hover:bg-accent transition-colors">
+                    <Github className="h-4 w-4" />
+                    GitHub
+                  </a>
+                  <a href="https://t.me/wblu0214" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-3 py-2 rounded-md border border-input hover:bg-accent transition-colors">
+                    <Mail className="h-4 w-4" />
+                    Telegram
+                  </a>
                 </div>
               </div>
 
