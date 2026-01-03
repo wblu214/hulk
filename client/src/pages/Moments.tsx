@@ -43,8 +43,8 @@ export default function Moments() {
         <div className="container max-w-3xl">
           <div className="space-y-6">
             <h1 className="text-5xl md:text-6xl font-bold tracking-tight">Moments</h1>
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              Updates, thoughts, and moments from my journey in Web3, software development, and entrepreneurship.
+            <p className="text-lg text-muted-foreground">
+              My updates and moments.
             </p>
           </div>
         </div>

@@ -58,9 +58,9 @@ export default function Home() {
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 pt-8">
               <Link href="/about">
-                <Button className="gap-2 group" size="lg">
+                <Button className="gap-2" size="lg">
                   Learn More
-                  <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="h-4 w-4" />
                 </Button>
               </Link>
               <Button variant="outline" size="lg" asChild>
@@ -86,14 +86,14 @@ export default function Home() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {/* Project Card 1 */}
-              <div className="group relative overflow-hidden rounded-lg border border-border bg-background p-6 hover:border-primary/50 transition-colors">
+              <div className="relative overflow-hidden rounded-lg border border-border bg-background p-6">
                 <div className="space-y-4">
                   <div className="flex items-start justify-between">
                     <div className="space-y-2">
                       <h3 className="text-xl font-bold">3copy</h3>
                       <p className="text-sm text-muted-foreground">Chrome Extension</p>
                     </div>
-                    <Code2 className="h-5 w-5 text-primary opacity-60" />
+                    <Code2 className="h-5 w-5 text-primary" />
                   </div>
                   <p className="text-sm text-muted-foreground leading-relaxed">
                     A Chrome extension designed for developers. Vibe coding神器 - streamlines daily development workflow with smart copy-paste utilities.
@@ -110,14 +110,14 @@ export default function Home() {
               </div>
 
               {/* Project Card 2 */}
-              <div className="group relative overflow-hidden rounded-lg border border-border bg-background p-6 hover:border-primary/50 transition-colors">
+              <div className="relative overflow-hidden rounded-lg border border-border bg-background p-6">
                 <div className="space-y-4">
                   <div className="flex items-start justify-between">
                     <div className="space-y-2">
                       <h3 className="text-xl font-bold">RWA Hub</h3>
                       <p className="text-sm text-muted-foreground">Web3 Infrastructure</p>
                     </div>
-                    <Zap className="h-5 w-5 text-primary opacity-60" />
+                    <Zap className="h-5 w-5 text-primary" />
                   </div>
                   <p className="text-sm text-muted-foreground leading-relaxed">
                     Leading development of a Real World Assets (RWA) infrastructure hub. Building scalable blockchain systems for enterprise adoption.

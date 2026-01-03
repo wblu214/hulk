@@ -44,7 +44,7 @@ export default function Books() {
           <div className="space-y-6">
             <h1 className="text-5xl md:text-6xl font-bold tracking-tight">Books & Resources</h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              A curated collection of books, papers, and resources that have shaped my thinking on technology, Web3, and software engineering.
+              Books and resources I recommend.
             </p>
           </div>
         </div>
@@ -57,12 +57,12 @@ export default function Books() {
             {books.map((book) => (
               <div
                 key={book.id}
-                className="group relative overflow-hidden rounded-lg border border-border bg-background p-6 hover:border-primary/50 transition-colors"
+                className="relative overflow-hidden rounded-lg border border-border bg-background p-6"
               >
                 <div className="space-y-4">
                   <div className="flex items-start justify-between">
                     <div className="space-y-2 flex-1">
-                      <h3 className="text-xl font-bold group-hover:text-primary transition-colors">
+                      <h3 className="text-xl font-bold">
                         {book.title}
                       </h3>
                       <p className="text-sm text-muted-foreground">{book.year}</p>

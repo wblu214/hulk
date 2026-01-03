@@ -116,7 +116,7 @@ export default function About() {
               ].map((hackathon) => (
                 <div
                   key={hackathon}
-                  className="p-4 rounded-lg border border-border hover:border-primary/50 transition-colors"
+                  className="p-4 rounded-lg border border-border"
                 >
                   <p className="font-semibold text-foreground">{hackathon}</p>
                 </div>

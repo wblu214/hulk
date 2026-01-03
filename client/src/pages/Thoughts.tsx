@@ -44,7 +44,7 @@ export default function Thoughts() {
           <div className="space-y-6">
             <h1 className="text-5xl md:text-6xl font-bold tracking-tight">Thoughts</h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Deep dives into Web3, software engineering, and the intersection of technology and entrepreneurship.
+              My thoughts on Web3 and technology.
             </p>
           </div>
         </div>
@@ -57,7 +57,7 @@ export default function Thoughts() {
             {thoughts.map((thought) => (
               <article
                 key={thought.id}
-                className="group border-b border-border pb-12 hover:opacity-80 transition-opacity cursor-pointer"
+                className="border-b border-border pb-12"
               >
                 <div className="space-y-4">
                   <div className="flex items-center gap-4 text-sm text-muted-foreground">
@@ -66,7 +66,7 @@ export default function Thoughts() {
                     <span>{thought.readTime}</span>
                   </div>
                   
-                  <h2 className="text-3xl font-bold group-hover:text-primary transition-colors">
+                  <h2 className="text-3xl font-bold">
                     {thought.title}
                   </h2>
                   
@@ -75,9 +75,9 @@ export default function Thoughts() {
                   </p>
                   
                   <div className="pt-4">
-                    <Button variant="ghost" className="gap-2 group/btn">
+                    <Button variant="ghost" className="gap-2">
                       Read More
-                      <ArrowRight className="h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
+                      <ArrowRight className="h-4 w-4" />
                     </Button>
                   </div>
                 </div>

@@ -33,7 +33,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <div className="container flex h-16 items-center justify-between">
           <div className="flex items-center gap-8">
             <Link href="/">
-              <a className="text-xl font-bold tracking-tighter font-sans hover:opacity-80 transition-opacity">
+              <a className="text-xl font-bold tracking-tighter font-sans">
                 HULK<span className="text-primary">.</span>
               </a>
             </Link>
@@ -42,7 +42,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               {navItems.map((item) => (
                 <Link key={item.path} href={item.path}>
                   <a className={cn(
-                    "text-sm font-medium transition-colors hover:text-primary",
+                    "text-sm font-medium",
                     isActive(item.path) ? "text-primary" : "text-muted-foreground"
                   )} title={item.labelCn}>
                     {item.label}
